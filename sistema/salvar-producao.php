@@ -25,11 +25,9 @@ if ($id) {
 <main>
   <div id="producao" class="tela">
     <form class="crud-form" method="post" action="./action/producao.php">
-      <h2><?= $id ? 'Editar' : 'Nova' ?> Produção</h2>
-      <input type="hidden" name="acao" value="<?= $id ? 'editar' : 'inserir' ?>">
-      <?php if ($id): ?>
-      <input type="hidden" name="id" value="<?= $id ?>">
-      <?php endif; ?>
+      <h2> Cadastrar Produção</h2>
+      <input type="hidden" name="acao" value="inserir">
+      <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
 
       <label>Produto:</label>
       <select name="ProdutoID" required>
