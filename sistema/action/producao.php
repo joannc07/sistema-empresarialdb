@@ -7,12 +7,11 @@ $acao = $_POST['acao'] ?? $_GET['acao'] ?? '';
 if ($acao == 'inserir') {
     $produtoID = $_POST['ProdutoID'];
     $clienteID = $_POST['ClienteID'];
-    $dataEntrega = $_POST['DataEntrega'];
     $dataProducao = $_POST['DataProducao'];
 
-    $sql = "INSERT INTO producao (ProdutoID, ClienteID, DataEntrega, DataProducao) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO producao (ProdutoID, ClienteID, DataProducao) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iiss", $produtoID, $clienteID, $dataEntrega, $dataProducao);
+    $stmt->bind_param("iiss", $produtoID, $clienteID, $dataProducao);
     $stmt->execute();
 
     header('Location: ../lista-producao.php');
@@ -23,12 +22,11 @@ if ($acao == 'editar') {
     $id = $_POST['id'];
     $produtoID = $_POST['ProdutoID'];
     $clienteID = $_POST['ClienteID'];
-    $dataEntrega = $_POST['DataEntrega'];
     $dataProducao = $_POST['DataProducao'];
 
-    $sql = "UPDATE producao SET ProdutoID = ?, ClienteID = ?, DataEntrega = ?, DataProducao = ? WHERE ProducaoID = ?";
+    $sql = "UPDATE producao SET ProdutoID = ?, ClienteID = ?, DataProducao = ? WHERE ProducaoID = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("iissi", $produtoID, $clienteID, $dataEntrega, $dataProducao, $id);
+    $stmt->bind_param("iissi", $produtoID, $clienteID, $dataProducao, $id);
     $stmt->execute();
 
     header('Location: ../lista-producao.php');
