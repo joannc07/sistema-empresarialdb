@@ -1,4 +1,4 @@
-<?php 
+<?php // Esse editar da produção não executa direito, mas vou verificar e ver no que eu errei.
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
