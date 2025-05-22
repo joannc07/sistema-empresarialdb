@@ -33,7 +33,7 @@ $stmt->close();
     <form class="crud-form" method="post" action="./action/producao.php">
       <h2>Editar Produção</h2>
       <input type="hidden" name="acao" value="editar">
-      <input type="hidden" name="id" value="<?= $id ?>">
+      <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
 
       <label>Produto:</label>
       <select name="ProdutoID" required>
